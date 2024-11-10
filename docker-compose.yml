@@ -1,13 +1,21 @@
 services:
   backapp:
-    build: ./backapp
+    build:
+      context: ./backapp
+      dockerfile: ../Dockerfile 
+    image: backapp
     ports:
       - "8081:8081"
+    expose:
+      - "8081"
     environment:
       - SERVER_PORT=8081
 
   frontapp:
-    build: ./frontapp
+    build:
+      context: ./frontapp
+      dockerfile: ../Dockerfile
+    image: frontapp
     ports:
       - "8080:8080"
     environment:
